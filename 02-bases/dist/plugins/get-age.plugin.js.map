@@ -1,0 +1,1 @@
+{"version":3,"file":"get-age.plugin.js","sourceRoot":"","sources":["../../src/plugins/get-age.plugin.ts"],"names":[],"mappings":";AAAA,2CAA2C;;;AAEpC,MAAM,MAAM,GAAG,CAAC,SAAiB,EAAE,EAAE;IAC1C,kCAAkC;IAClC,0DAA0D;IAE1D,OAAO,IAAI,IAAI,EAAE,CAAC,WAAW,EAAE,GAAG,IAAI,IAAI,CAAC,SAAS,CAAC,CAAC,WAAW,EAAE,CAAC;AACtE,CAAC,CAAC;AALW,QAAA,MAAM,UAKjB"}
