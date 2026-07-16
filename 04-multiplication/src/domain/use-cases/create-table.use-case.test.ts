@@ -20,5 +20,13 @@ describe('CreateTableUseCase', () => {
       base: 3,
       limit: 20,
     };
+
+    const table = createTable.execute(options);
+    const row = table.split('\n').length;
+
+    expect(table).toContain('3 x 1 = 3');
+    expect(table).toContain('3 x 10 = 30');
+    expect(table).toContain('3 x 20 = 60');
+    expect(row).toBe(options.limit);
   });
 });
