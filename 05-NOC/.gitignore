@@ -1,10 +1,20 @@
+
+
+
 node_modules/
 dist/
 
 # Logs
 .DS_STORE
 
+
 logs/
 
 
 .env
+
+mongo/
+mongo/
+mongo-test/
+postgres-test/
+/src/generated/prisma
