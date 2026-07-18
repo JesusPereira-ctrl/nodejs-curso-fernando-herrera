@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import compression from 'compression';
 import path from 'path';
 
 interface Options {
@@ -22,14 +23,18 @@ export class Server {
 
   async start() {
     //* Middlewares
+    this.app.use(express.json()); // raw
+    this.app.use(express.urlencoded({ extended: true })); // x-www-form-encoded
+    this.app.use(compression()); // comprimir respuestas para velocidad
 
     //* Public Folder
-    this.app.use(express.static(this.publicPath));
+    this.app.use(express.static(this.publicPath)); // servir contenido estático
 
     //* Routes
-    this.app.use(this.routes);
+    this.app.use(this.routes); // usar router fuera del archivo
 
     //* SPA
+    // servir SPA en la carpeta public en cualquier ruta no definida
     this.app.get('/*any', (req, res) => {
       const indexPath = path.join(
         __dirname + `../../../${this.publicPath}/index.html`,
@@ -37,6 +42,7 @@ export class Server {
       res.sendFile(indexPath);
     });
 
+    // escucha en el puerto indicado
     this.app.listen(this.port, () => {
       console.log(`Server running on port ${this.port}`);
     });
